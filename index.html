@@ -21,6 +21,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -166,6 +170,37 @@
       font-weight: 700;
     }
 
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 10;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(102, 217, 198, 0.52);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #101114;
+      font-size: 1.45rem;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .back-to-top:hover,
+    .back-to-top:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(102, 217, 198, 0.24);
+      outline: none;
+    }
+
+    .back-to-top:active {
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 820px) {
       header {
         align-items: flex-start;
@@ -179,11 +214,19 @@
       section {
         min-height: auto;
       }
+
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 46px;
+        height: 46px;
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
+  <div id="top" class="page">
     <header>
       <div class="name-block">
         <p class="eyebrow">Personal Homepage</p>
@@ -251,5 +294,6 @@
       </section>
     </main>
   </div>
+  <a class="back-to-top" href="#top" aria-label="返回页面顶部" title="返回顶部">↑</a>
 </body>
 </html>
